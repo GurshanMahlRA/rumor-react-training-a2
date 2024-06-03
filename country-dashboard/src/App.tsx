@@ -1,28 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
 import countries from './data/countries.json';
+import Currency from './Content/Currency';
+import Language from './Content/Language';
+import Region from './Content/Region';
+import Card from  './Content/Card';
+
 
 export const App = () => {
-  // countries holds a JSON array of the countries and their data which you can use
-  console.log(countries);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Countries</h1>
       </header>
+      <nav>
+        <input placeholder="Search..." />
+        <Currency />
+        <Language />
+        <Region />
+      </nav>
+      <div className="cardDiv">
+        {countries.map((country, index) => {
+          const currencyKey = country.currencies ? Object.keys(country.currencies)[0] : '';
+          const currencyName = currencyKey;
+          const capital = country.capital ? country.capital[0] : 'Unknown';
+
+          return (
+            <Card
+              key={index}
+              name={country.name.common}
+              population={country.population}
+              region={country.region}
+              capital={capital}
+              currency={currencyName}
+              flagUrl={country.flags.png}
+            />
+          );
+        })}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
