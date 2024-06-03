@@ -65,3 +65,27 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.clear-filters {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.emptyDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.emptyDiv-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
