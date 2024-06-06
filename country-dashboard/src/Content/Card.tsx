@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface CardProps {
   name: string;
   population: number;
@@ -7,7 +9,7 @@ interface CardProps {
   flagUrl: string;
 }
 
-export const Card: React.FC<CardProps> = ({ name, population, region, capital, currency, flagUrl }) => {
+const Card: React.FC<CardProps> = ({ name, population, region, capital, currency, flagUrl }) => {
   return (
     <div className="card">
       <img src={flagUrl} className="card--image" alt={`Flag of ${name}`} />
@@ -23,3 +25,4 @@ export const Card: React.FC<CardProps> = ({ name, population, region, capital, c
 };
 
 export default Card;
+
